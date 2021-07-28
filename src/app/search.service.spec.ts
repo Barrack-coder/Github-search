@@ -1,7 +1,25 @@
-import { Search.Service } from './search.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-describe('Search.Service', () => {
-  it('should create an instance', () => {
-    expect(new Search.Service()).toBeTruthy();
+import { SearchComponent } from './search.component';
+
+describe('SearchComponent', () => {
+  let component: SearchComponent;
+  let fixture: ComponentFixture<SearchComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ SearchComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SearchComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

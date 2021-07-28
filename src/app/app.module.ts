@@ -6,7 +6,10 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { HeadComponent } from './head/head.component';
 import { ErrorComponent } from './error/error.component';
-import { UserComponent } from './user/user.component';
+import { UsersComponent } from './users/users.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -14,11 +17,12 @@ import { UserComponent } from './user/user.component';
     SearchComponent,
     HeadComponent,
     ErrorComponent,
-    UserComponent
+    UsersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
