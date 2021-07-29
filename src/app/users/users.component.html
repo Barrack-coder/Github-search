@@ -2,7 +2,16 @@
 <!-- <app-search></app-search> -->
 
 <div class="container mt-5">
-    <app-search (searchResult)="searchUser($event)"></app-search>
+    <!-- <app-search (searchResult)="searchUser($event)"></app-search> -->
+
+    <div>
+        <form action="">
+            <div class="input-group">
+                <input type="text" class="form-control rounded" placeholder="UserName" [(ngModel)]='profilename' name="profilename" (keyup)='getProfile()' />
+                <button type="button" class="btn btn-outline-primary">search</button>
+            </div>
+        </form>
+    </div>
     <div class="row mt-5">
         <div class="col-md-5">
             <div class="row">
@@ -22,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-7">
+        <!-- <div class="col-md-7">
             <h1 class="mb-5" style="font-family: 'Palette Mosaic', cursive;font-weight:bold">Repositories</h1>
             <div class="row repo">
                 <div class="mb-4 col-md-6" *ngFor="let repo of repos">
@@ -49,6 +58,6 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
     </div>
 </div>

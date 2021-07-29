@@ -10,41 +10,53 @@ import { User } from '../user';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent implements OnInit, OnDestroy {
+export class UsersComponent implements OnInit{
 
-   user!:User;
-  repos:any;
-  repo!:Repo;
-  subscription:Subscription = new Subscription;
-  git:any;
+  //  user!:User;
+  // repos:any;
+  // repo!:Repo;
+  // subscription:Subscription = new Subscription;
+  // git:any;
+  public user:any =[];
+  public profilename:string ='';
+
   
 
 
-  constructor(public userService:SearchService)  { 
+  constructor(private userService:SearchService)  { 
 
   }
- searchUser(username:any){
+  getProfile(){
+    this.userService.changeProfile(this.profilename)
+     this.userService.getUsers().subscribe((barry:any)=>{
+      this.user=barry;
+      console.log(barry)
+    })
+  }
+
+//  searchUser(username:any){
  
-   }
+//    }
 
   ngOnInit(): void {
+   
   
     // this.searchUser('Barrack-coder');
     // this.userService.getUsers();
-    this.userService.getUsers();
-      this.subscription =  this.userService.getGits()
-  .subscribe((response: any) => {
-        this.git = response;
-        console.log(response);
-      });
+  //   this.userService.getUsers();
+  //     this.subscription =  this.userService.getGits()
+  // .subscribe((response: any) => {
+  //       this.git = response;
+  //       console.log(response);
+  //     });
       
  
   }
 
-  ngOnDestroy()
-  {
-     this.subscription.unsubscribe();
-  }
+  // ngOnDestroy()
+  // {
+  //    this.subscription.unsubscribe();
+  // }
  
 
 }

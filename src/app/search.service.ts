@@ -5,34 +5,45 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from './user';
 import { Repo } from './repo';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  user!:User;
-  repos!:Repo;
-  git=new BehaviorSubject<any>([]);
+  // user!:User;
+  // repos!:Repo;
+  // git=new BehaviorSubject<any>([]);
+  private profilename:string;
+  private clientId ='546a6b10eb7f69dc83c6';
 
   constructor(private http:HttpClient) { 
-    this.user = new User("",0,0,0,"","","");
-    this.repos = new Repo("","","","",new Date());
+    // this.user = new User("",0,0,0,"","","");
+    // this.repos = new Repo("","","","",new Date());
+    console.log('search service works');
+    this.profilename = 'Barrack-coder'
   }
 
    
      getUsers()
   {
-    return this.http.get(`https://api.github.com/users/Barrack-coder?access_token=${environment.AccessToken}`)
-      .subscribe((response: any)=>{
-        this.git.next(response);
-        console.log('response');
-      });
+    return this.http.get("https://api.github.com/users/" + this.profilename + "?client_id=" + this.clientId + "&client_secret=" + environment.clientSecret)
+    .pipe(map(data=>{
+      return data
+    }))
+
+      // .subscribe((response: any)=>{
+      //   this.git.next(response);
+      //   console.log('response');
+      // });
+  }
+  changeProfile(profilename:string){
+    this.profilename=profilename;
   }
 
-   getGits()
-  {
-    return this.git.asObservable();
-  }
+  //  getGits()
+  // {
+  // }
   // getProfile(username:string){
   //   interface ApiResponse{
   //       name:string;
