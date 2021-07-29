@@ -1,15 +1,14 @@
 <app-head></app-head>
-
 <!-- <app-search></app-search> -->
 <div class="container mt-5">
-    <!-- <app-search (searchResult)="searchUser($event)"></app-search> -->
+    <app-search (searchResult)="searchUser($event)"></app-search>
     <div class="row mt-5">
         <div class="col-md-5">
             <div class="row">
                 <img src="{{user.avatar_url}}" class="rounded-circle img-fluid" alt="Avatar">
             </div>
             <div class="row mb-5">
-                <!-- <h2 class="mt-5 mb-4">{{user.name}}</h2>
+                <h2 class="mt-5 mb-4">{{user.name}}</h2>
 
                 <div class="col-md-2">
                     <p>Followers: {{user.followers}}</p>
@@ -18,13 +17,13 @@
                     <p>Following: {{user.following}}</p>
                 </div>
                 <div class="col-md-2">
-                    <p>Repositories: {{user.public_repos}}</p> -->
-                <!-- </div> -->
+                    <p>Repositories: {{user.public_repos}}</p>
+                </div>
             </div>
         </div>
         <div class="col-md-7">
-            <h1 class="mb-5">Repositories</h1>
-            <!-- <div class="row repo">
+            <h1 class="mb-5" style="font-family: 'Palette Mosaic', cursive;font-weight:bold">Repositories</h1>
+            <div class="row repo">
                 <div class="mb-4 col-md-6" *ngFor="let repo of repos">
                     <div class="card text-white h-100 ">
                         <div class="card-header">
@@ -47,7 +46,7 @@
                     </div>
                     <hr>
                 </div>
-            </div> -->
+            </div>
 
         </div>
     </div>
